@@ -1,0 +1,16 @@
+{
+	"schemaVersion": 1,
+	"id": "lawrun-gametest",
+	"version": "1.0.0",
+	"name": "LawRun game tests",
+	"environment": "*",
+	"entrypoints": {
+		"fabric-client-gametest": [
+			"com.bogi.lawrun.gametest.GermanyRunClientTest",
+			"com.bogi.lawrun.gametest.ModPageShots"
+		]
+	},
+	"depends": {
+		"lawrun": "*"
+	}
+}

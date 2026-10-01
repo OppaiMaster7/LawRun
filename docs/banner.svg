@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 400" width="1280" height="400" role="img" aria-label="LawRun: Minecraft challenge runs where the game enforces the law">
+	<defs>
+		<radialGradient id="vignette" cx="50%" cy="50%" r="72%">
+			<stop offset="40%" stop-color="#000" stop-opacity="0"/>
+			<stop offset="100%" stop-color="#000" stop-opacity="0.9"/>
+		</radialGradient>
+		<!-- film grain: noise thresholded into sparse white specks -->
+		<filter id="grain" x="0" y="0" width="100%" height="100%">
+			<feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="1" seed="11"/>
+			<feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 7 -4.6"/>
+		</filter>
+		<!-- paper fibre: noise stretched sideways, tinted brown -->
+		<filter id="fibre" x="0" y="0" width="100%" height="100%">
+			<feTurbulence type="fractalNoise" baseFrequency="0.012 0.55" numOctaves="3" seed="4"/>
+			<feColorMatrix type="matrix" values="0 0 0 0 0.36  0 0 0 0 0.27  0 0 0 0 0.16  0 0 0 0.55 -0.12"/>
+		</filter>
+		<!-- worn ink for the stamp -->
+		<filter id="ink" x="-5%" y="-10%" width="110%" height="120%">
+			<feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="2" seed="3" result="noise"/>
+			<feDisplacementMap in="SourceGraphic" in2="noise" scale="3" result="rough"/>
+			<feColorMatrix in="noise" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -5 3.4" result="wear"/>
+			<feComposite in="rough" in2="wear" operator="in"/>
+		</filter>
+		<filter id="shadow" x="-10%" y="-20%" width="120%" height="150%">
+			<feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000" flood-opacity="0.7"/>
+		</filter>
+		<clipPath id="card">
+			<rect x="-430" y="-130" width="860" height="260"/>
+		</clipPath>
+	</defs>
+
+	<!-- the dark newsreel frame -->
+	<rect width="1280" height="400" fill="#1a1511"/>
+	<rect width="1280" height="400" fill="#fff" filter="url(#grain)" opacity="0.5"/>
+	<rect width="1280" height="400" fill="url(#vignette)"/>
+	<rect x="1012" y="0" width="1.5" height="400" fill="#fff" opacity="0.14"/>
+	<rect x="214" y="0" width="1" height="400" fill="#fff" opacity="0.07"/>
+	<rect width="1280" height="30" fill="#000"/>
+	<rect y="370" width="1280" height="30" fill="#000"/>
+
+	<!-- the paper card -->
+	<g transform="translate(640 200) rotate(-1.6)" font-family="'Courier New', Courier, 'Liberation Mono', monospace" font-weight="bold">
+		<g filter="url(#shadow)">
+			<rect x="-430" y="-130" width="860" height="260" fill="#e7dab9"/>
+		</g>
+		<g clip-path="url(#card)">
+			<rect x="-430" y="-130" width="860" height="260" fill="#000" filter="url(#fibre)"/>
+		</g>
+		<rect x="-430" y="-130" width="860" height="260" fill="none" stroke="#a8946a" stroke-width="3"/>
+
+		<text x="-392" y="-88" font-size="24" fill="#b3261e" textLength="150" lengthAdjust="spacingAndGlyphs">FABRIC MOD</text>
+		<text x="392" y="-88" font-size="20" fill="#7d6c4f" text-anchor="end" textLength="330" lengthAdjust="spacingAndGlyphs">MINECRAFT CHALLENGE RUNS</text>
+
+		<text x="-396" y="34" font-size="132" fill="#2a211a" textLength="486" lengthAdjust="spacingAndGlyphs">LAWRUN</text>
+
+		<text x="-392" y="94" font-size="25" fill="#3b3027" textLength="660" lengthAdjust="spacingAndGlyphs">Beat the game. Break a law and the run ends.</text>
+
+		<!-- the stamp -->
+		<g transform="translate(268 -8) rotate(-9)" filter="url(#ink)" opacity="0.92">
+			<rect x="-148" y="-44" width="296" height="88" rx="5" fill="none" stroke="#b3261e" stroke-width="6"/>
+			<rect x="-137" y="-33" width="274" height="66" rx="3" fill="none" stroke="#b3261e" stroke-width="2.5"/>
+			<text x="0" y="16" font-size="46" fill="#b3261e" text-anchor="middle" textLength="236" lengthAdjust="spacingAndGlyphs">ENFORCED</text>
+		</g>
+	</g>
+</svg>

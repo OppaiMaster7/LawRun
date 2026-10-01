@@ -1,0 +1,38 @@
+{
+	"schemaVersion": 1,
+	"id": "lawrun",
+	"version": "${version}",
+	"name": "LawRun",
+	"description": "Challenge runs from GuyBordo's \"Can't Break the Laws of X\" videos, with the rules enforced by the game.",
+	"authors": [
+		"Bogi"
+	],
+	"contact": {
+		"homepage": "https://github.com/OppaiMaster7/LawRun",
+		"sources": "https://github.com/OppaiMaster7/LawRun",
+		"issues": "https://github.com/OppaiMaster7/LawRun/issues"
+	},
+	"license": "CC0-1.0",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.bogi.lawrun.LawRun"
+		],
+		"client": [
+			"com.bogi.lawrun.client.LawRunClient"
+		]
+	},
+	"mixins": [
+		"lawrun.mixins.json",
+		{
+			"config": "lawrun.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.19.5",
+		"minecraft": "~26.3",
+		"java": ">=25",
+		"fabric-api": "*"
+	}
+}

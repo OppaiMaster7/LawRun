@@ -1,0 +1,18 @@
+{
+	"required": true,
+	"package": "com.bogi.lawrun.client.mixin",
+	"compatibilityLevel": "JAVA_25",
+	"client": [
+		"AbstractContainerScreenAccessor",
+		"ClientPacketListenerMixin",
+		"GameRendererMixin",
+		"InventoryScreenMixin",
+		"ToastManagerAccessor"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	},
+	"overwrites": {
+		"requireAnnotations": true
+	}
+}
